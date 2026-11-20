@@ -349,7 +349,7 @@ class BenchmarkBackend:
             command += ["--RTCTECHkeepTempFiles", "1"]
             for f in glob.glob("/tmp/o2cagpu_rtc_*"):
                 os.remove(f)
-        self._run_and_log(command, rtc_log, run_log_path=rtc_log, timeout=90)
+        self._run_and_log(command, rtc_log, run_log_path=rtc_log, timeout=120)
         if return_stats:
             return self.get_rtc_HW_stats()
 
@@ -367,7 +367,7 @@ class BenchmarkBackend:
         if RTC:
             command += ["--RTCenable", "1", "--RTCcacheOutput", "1", "--RTCTECHloadLaunchBoundsFromFile", self.param_dump]
         #if RTC and self.backend == "nvidia":
-            #self._run_and_log(rtc_dump, self.benchmark_backend_log, run_log_file, timeout=90)
+            #self._run_and_log(rtc_dump, self.benchmark_backend_log, run_log_file, timeout=120)
         timeout = 60 * self.num_events if self.num_events and self.num_events > 1 else 60 * self.num_runs # stall timeout check
         self._run_and_log(command, self.benchmark_backend_log, run_log_file, timeout=timeout)
         self._postprocess_profiler_output()

@@ -29,7 +29,7 @@ The tuner assumes that the repository has been cloned into the parent directory 
 - `--trials` to set the number of trials to use. Will override the trials computed by the time budget request.
 - `--startup` to set the number of startup iterations to use. Will override the startup iterations computed by the time budget request.
 - `--time-budget` to set the desired duration of the tuning. Can be set like: minutes (30m), hours (1h), or hh:mm (1:30).
-- `--backend BACKEND` to force a backend: `auto`, `nvidia`, `amd`.
+- `--backend` to force a backend: `auto`, `nvidia`, `amd`.
 
 ### Analyzing
 `o2gpu-analyze` analyzes the result of the tuning, writes an header with the optimised parameters and dumps a .par file. It requires the directory which has to be analyzed. It will automatically compare the performance of the tuned parameters using the settings used during tuning.
